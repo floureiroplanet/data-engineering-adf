@@ -5,21 +5,32 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Source_Container": {
+				"type": "string"
+			},
+			"Source_Directory": {
+				"type": "string"
+			},
+			"Salesforce_Object": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat(pipeline().parameters.Salesforce_Object,'_', formatDateTime(utcnow(), 'yyyy-MM-dd hh:mm '))",
+					"value": "@concat(dataset().Salesforce_Object,'_', formatDateTime(utcnow(), 'yyyy-MM-dd hh:mm '))",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat('/',formatDateTime(utcnow(),'yyyy'),'/',formatDateTime(utcnow(),'MM'),'/',formatDateTime(utcnow(),'dd'),'/',formatDateTime(utcnow(),'hh'),'/')",
+					"value": "@concat(dataset().Source_Directory,'/',formatDateTime(utcnow(),'yyyy'),'/',formatDateTime(utcnow(),'MM'),'/',formatDateTime(utcnow(),'dd'),'/',formatDateTime(utcnow(),'hh'),'/')",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "@pipeline().parameters.FolderPath_Source",
+					"value": "@{dataset().Source_Container}",
 					"type": "Expression"
 				}
 			},

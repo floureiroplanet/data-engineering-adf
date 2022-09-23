@@ -46,7 +46,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Parquet_raw",
+						"referenceName": "Raw_Read_Parquet",
 						"type": "DatasetReference"
 					}
 				]
@@ -124,7 +124,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2022-09-23T08:41:39Z"
+		"lastPublishTime": "2022-09-23T11:01:52Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

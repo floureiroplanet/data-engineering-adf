@@ -100,9 +100,18 @@
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,
-						"modifiedDatetimeStart": "2022-09-21T00:00:00Z",
-						"modifiedDatetimeEnd": "2022-09-20T00:00:00Z",
-						"wildcardFileName": "WorkOrder*"
+						"modifiedDatetimeStart": {
+							"value": "@adddays(utcnow(), -5)",
+							"type": "Expression"
+						},
+						"modifiedDatetimeEnd": {
+							"value": "@adddays(utcnow(), -1)",
+							"type": "Expression"
+						},
+						"wildcardFileName": {
+							"value": "@{concat(pipeline().parameters.Salesforce_Object, '*')}",
+							"type": "Expression"
+						}
 					}
 				}
 			}
@@ -123,10 +132,14 @@
 			"Destination_Directory": {
 				"type": "string",
 				"defaultValue": "crm/transactions/salesforce"
+			},
+			"Salesforce_Object": {
+				"type": "string",
+				"defaultValue": "WorkOrder"
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2022-09-22T16:53:13Z"
+		"lastPublishTime": "2022-09-23T11:10:48Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
