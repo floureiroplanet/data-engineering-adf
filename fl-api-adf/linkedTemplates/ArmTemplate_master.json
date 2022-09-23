@@ -1,0 +1,243 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "fl-api-adf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"Raw_Read_Parquet_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Raw_Read_Parquet'"
+		},
+		"Salesforce_API_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_API'"
+		},
+		"Salesforce_API_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_API'"
+		},
+		"Salesforce_UAT_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_UAT'"
+		},
+		"Salesforce_UAT_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_UAT'"
+		},
+		"Salesforce_UAT_LIVE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_UAT_LIVE'"
+		},
+		"Salesforce_UAT_LIVE_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_UAT_LIVE'"
+		},
+		"curated_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'curated'"
+		},
+		"raw_live_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'raw_live'"
+		},
+		"API_USA_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"Raw_Read_Parquet_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=7dcbc48bd36ce06d4554839f64f9fcd9"
+		},
+		"Salesforce_API_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://fintrax.my.salesforce.com"
+		},
+		"Salesforce_API_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "intelligence@planetpayment.com"
+		},
+		"Salesforce_UAT_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://fintrax--uat.sandbox.my.salesforce.com/"
+		},
+		"Salesforce_UAT_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "intelligence@planetpayment.com.uat"
+		},
+		"Salesforce_UAT_LIVE_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://fintrax--uat.sandbox.my.salesforce.com/"
+		},
+		"Salesforce_UAT_LIVE_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "intelligence@planetpayment.com.uat"
+		},
+		"curated_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"raw_live_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "fl-api-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"Raw_Read_Parquet_accountKey": {
+						"value": "[parameters('Raw_Read_Parquet_accountKey')]"
+					},
+					"Salesforce_API_password": {
+						"value": "[parameters('Salesforce_API_password')]"
+					},
+					"Salesforce_API_securityToken": {
+						"value": "[parameters('Salesforce_API_securityToken')]"
+					},
+					"Salesforce_UAT_password": {
+						"value": "[parameters('Salesforce_UAT_password')]"
+					},
+					"Salesforce_UAT_securityToken": {
+						"value": "[parameters('Salesforce_UAT_securityToken')]"
+					},
+					"Salesforce_UAT_LIVE_password": {
+						"value": "[parameters('Salesforce_UAT_LIVE_password')]"
+					},
+					"Salesforce_UAT_LIVE_securityToken": {
+						"value": "[parameters('Salesforce_UAT_LIVE_securityToken')]"
+					},
+					"curated_accountKey": {
+						"value": "[parameters('curated_accountKey')]"
+					},
+					"raw_live_accountKey": {
+						"value": "[parameters('raw_live_accountKey')]"
+					},
+					"API_USA_properties_typeProperties_url": {
+						"value": "[parameters('API_USA_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"Raw_Read_Parquet_properties_typeProperties_url": {
+						"value": "[parameters('Raw_Read_Parquet_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"Salesforce_API_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_API_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_API_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_API_properties_typeProperties_username')]"
+					},
+					"Salesforce_UAT_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_UAT_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_UAT_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_UAT_properties_typeProperties_username')]"
+					},
+					"Salesforce_UAT_LIVE_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_UAT_LIVE_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_UAT_LIVE_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_UAT_LIVE_properties_typeProperties_username')]"
+					},
+					"curated_properties_typeProperties_url": {
+						"value": "[parameters('curated_properties_typeProperties_url')]"
+					},
+					"raw_live_properties_typeProperties_url": {
+						"value": "[parameters('raw_live_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "fl-api-adf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'fl-api-adf_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "fl-api-adf_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'fl-api-adf_ArmTemplate_1')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "fl-api-adf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Raw_Read_Parquet_accountKey": {
+			"value": ""
+		},
+		"Salesforce_API_password": {
+			"value": ""
+		},
+		"Salesforce_API_securityToken": {
+			"value": ""
+		},
+		"Salesforce_UAT_password": {
+			"value": ""
+		},
+		"Salesforce_UAT_securityToken": {
+			"value": ""
+		},
+		"Salesforce_UAT_LIVE_password": {
+			"value": ""
+		},
+		"Salesforce_UAT_LIVE_securityToken": {
+			"value": ""
+		},
+		"curated_accountKey": {
+			"value": ""
+		},
+		"raw_live_accountKey": {
+			"value": ""
+		},
+		"API_USA_properties_typeProperties_url": {
+			"value": "https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"Raw_Read_Parquet_properties_typeProperties_url": {
+			"value": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=7dcbc48bd36ce06d4554839f64f9fcd9"
+		},
+		"Salesforce_API_properties_typeProperties_environmentUrl": {
+			"value": "https://fintrax.my.salesforce.com"
+		},
+		"Salesforce_API_properties_typeProperties_username": {
+			"value": "intelligence@planetpayment.com"
+		},
+		"Salesforce_UAT_properties_typeProperties_environmentUrl": {
+			"value": "https://fintrax--uat.sandbox.my.salesforce.com/"
+		},
+		"Salesforce_UAT_properties_typeProperties_username": {
+			"value": "intelligence@planetpayment.com.uat"
+		},
+		"Salesforce_UAT_LIVE_properties_typeProperties_environmentUrl": {
+			"value": "https://fintrax--uat.sandbox.my.salesforce.com/"
+		},
+		"Salesforce_UAT_LIVE_properties_typeProperties_username": {
+			"value": "intelligence@planetpayment.com.uat"
+		},
+		"curated_properties_typeProperties_url": {
+			"value": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"raw_live_properties_typeProperties_url": {
+			"value": "https://fladlsplanet.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
