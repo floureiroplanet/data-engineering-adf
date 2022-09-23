@@ -1,0 +1,25 @@
+{
+	"name": "ParquetUSA",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat('USA_', formatDateTime(utcnow(), 'yyyy-MM-dd hh:mm '))",
+					"type": "Expression"
+				},
+				"folderPath": "API/API_USA",
+				"fileSystem": "raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

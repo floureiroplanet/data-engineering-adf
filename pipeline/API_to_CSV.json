@@ -1,0 +1,283 @@
+{
+	"name": "API_to_CSV",
+	"properties": {
+		"activities": [
+			{
+				"name": "API",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Destination",
+						"value": "sampledata//London Weather"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['coord']['lon']"
+								},
+								"sink": {
+									"name": "lon"
+								}
+							},
+							{
+								"source": {
+									"path": "$['coord']['lat']"
+								},
+								"sink": {
+									"name": "lat"
+								}
+							},
+							{
+								"source": {
+									"path": "$['weather'][0]['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['weather'][0]['main']"
+								},
+								"sink": {
+									"name": "main"
+								}
+							},
+							{
+								"source": {
+									"path": "$['weather'][0]['description']"
+								},
+								"sink": {
+									"name": "description"
+								}
+							},
+							{
+								"source": {
+									"path": "$['weather'][0]['icon']"
+								},
+								"sink": {
+									"name": "weather"
+								}
+							},
+							{
+								"source": {
+									"path": "$['base']"
+								},
+								"sink": {
+									"name": "base"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['temp']"
+								},
+								"sink": {
+									"name": "temp"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['feels_like']"
+								},
+								"sink": {
+									"name": "feels_like"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['temp_min']"
+								},
+								"sink": {
+									"name": "temp_min"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['temp_max']"
+								},
+								"sink": {
+									"name": "temp_max"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['pressure']"
+								},
+								"sink": {
+									"name": "pressure"
+								}
+							},
+							{
+								"source": {
+									"path": "$['main']['humidity']"
+								},
+								"sink": {
+									"name": "humidity"
+								}
+							},
+							{
+								"source": {
+									"path": "$['visibility']"
+								},
+								"sink": {
+									"name": "visibility"
+								}
+							},
+							{
+								"source": {
+									"path": "$['wind']['speed']"
+								},
+								"sink": {
+									"name": "speed"
+								}
+							},
+							{
+								"source": {
+									"path": "$['wind']['deg']"
+								},
+								"sink": {
+									"name": "deg"
+								}
+							},
+							{
+								"source": {
+									"path": "$['clouds']['all']"
+								},
+								"sink": {
+									"name": "all"
+								}
+							},
+							{
+								"source": {
+									"path": "$['dt']"
+								},
+								"sink": {
+									"name": "dt"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sys']['type']"
+								},
+								"sink": {
+									"name": "sys"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sys']['id']"
+								},
+								"sink": {
+									"name": "dt_id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sys']['country']"
+								},
+								"sink": {
+									"name": "country"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sys']['sunrise']"
+								},
+								"sink": {
+									"name": "sunrise"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sys']['sunset']"
+								},
+								"sink": {
+									"name": "sunset"
+								}
+							},
+							{
+								"source": {
+									"path": "$['timezone']"
+								},
+								"sink": {
+									"name": "timezone"
+								}
+							},
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "timezone_id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['cod']"
+								},
+								"sink": {
+									"name": "cod"
+								}
+							}
+						],
+						"collectionReference": "$['weather']",
+						"mapComplexValuesToString": true
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_0v5",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_0v5",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-19T15:35:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

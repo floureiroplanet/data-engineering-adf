@@ -1,0 +1,24 @@
+{
+	"name": "Salesforce_UAT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce_UAT",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Salesforce_Object": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": {
+				"value": "@{dataset().Salesforce_Object}",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

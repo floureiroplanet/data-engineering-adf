@@ -1,0 +1,31 @@
+{
+	"name": "Parquet_raw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(pipeline().parameters.Salesforce_Object,'_', formatDateTime(utcnow(), 'yyyy-MM-dd hh:mm '))",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat('/',formatDateTime(utcnow(),'yyyy'),'/',formatDateTime(utcnow(),'MM'),'/',formatDateTime(utcnow(),'dd'),'/',formatDateTime(utcnow(),'hh'),'/')",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@pipeline().parameters.FolderPath_Source",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

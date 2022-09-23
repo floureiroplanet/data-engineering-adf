@@ -1,0 +1,25 @@
+{
+	"name": "Salesforce",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyToSalesforce",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2022-09-21T10:18:00Z",
+				"endTime": "2022-09-22T10:18:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

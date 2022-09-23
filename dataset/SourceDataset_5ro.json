@@ -1,0 +1,13 @@
+{
+	"name": "SourceDataset_5ro",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "API_USA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

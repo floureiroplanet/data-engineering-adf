@@ -1,0 +1,9 @@
+{
+	"name": "fl-api-adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f926155c-4882-41cf-9393-450b93865a17",
+		"tenantId": "b6078821-12c7-4949-9827-52da66c836c7"
+	}
+}

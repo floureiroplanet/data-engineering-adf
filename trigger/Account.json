@@ -1,0 +1,25 @@
+{
+	"name": "Account",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "API_Salesforce",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2022-09-19T14:39:00Z",
+				"endTime": "2022-09-20T14:39:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

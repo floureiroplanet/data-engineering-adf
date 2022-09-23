@@ -1,0 +1,21 @@
+{
+	"name": "Raw_Read_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Raw_Read_Parquet",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "API/API_Salesforce",
+				"fileSystem": "raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

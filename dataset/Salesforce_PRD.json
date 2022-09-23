@@ -1,0 +1,16 @@
+{
+	"name": "Salesforce_PRD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce_API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "WorkOrder"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

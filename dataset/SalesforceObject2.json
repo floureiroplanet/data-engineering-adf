@@ -1,0 +1,16 @@
+{
+	"name": "SalesforceObject2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce_UAT_LIVE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "WorkOrder"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

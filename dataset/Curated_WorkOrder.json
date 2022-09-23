@@ -1,0 +1,22 @@
+{
+	"name": "Curated_WorkOrder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "curated",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "WorkOrder",
+				"folderPath": "API/SALESFORCE/WorkOrder",
+				"fileSystem": "curated"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
