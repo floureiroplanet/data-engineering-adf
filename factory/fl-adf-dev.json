@@ -1,0 +1,9 @@
+{
+	"name": "fl-adf-dev",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3826ae3a-77ee-44c8-bca3-2025352b8b95",
+		"tenantId": "b6078821-12c7-4949-9827-52da66c836c7"
+	}
+}
