@@ -1,0 +1,22 @@
+name: Run Azure Login Integration Tests
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 */3 * * *'
+permissions:
+      id-token: write
+      contents: write
+
+jobs: 
+
+  az-login-test:
+    runs-on: ubuntu-latest
+#     continue-on-error: true
+    steps:
+      - name: 'Az CLI login with subscription'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - run: |
+          az account show
