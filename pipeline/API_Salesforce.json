@@ -44,9 +44,6 @@
 										"value": "@pipeline().GroupId",
 										"type": "Expression"
 									}
-								},
-								{
-									"value": ""
 								}
 							]
 						},
