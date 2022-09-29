@@ -126,6 +126,66 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Move",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT ‘@{pipeline().DataFactory}’ as DataFactory_Name,\n\n‘@{pipeline().Pipeline}’ as Pipeline_Name,\n\n‘@{activity(‘copytables’).output.executionDetails[0].source.type}’ as Source_Type,\n\n‘@{activity(‘copytables’).output.executionDetails[0].sink.type}’ as Sink_Type,\n\n‘@{activity(‘copytables’).output.executionDetails[0].status}’ as Execution_Status,\n\n‘@{activity(‘copytables’).output.rowsRead}’ as RowsRead,\n\n‘@{activity(‘copytables’).output.rowsCopied}’ as RowsWritten\n\n‘@{activity(‘copytables’).output.copyDuration}’ as CopyDurationInSecs,\n\n‘@{activity(‘copytables’).output.executionDetails[0].start}’ as CopyActivity_Start_Time,\n\n‘@{utcnow()}’ as CopyActivity_End_Time,\n\n‘@{pipeline().RunId}’ as RunId,\n\n‘@{pipeline().TriggerType}’ as TriggerType,\n\n‘@{pipeline().TriggerName}’ as TriggerName,\n\n‘@{pipeline().TriggerTime}’ as TriggerTime",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "GetSetMetadata",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"parameters": {

@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "last_time",
+				"fileName": "pipeline",
+				"folderPath": "Execution",
 				"fileSystem": "curated"
 			},
 			"columnDelimiter": ",",
