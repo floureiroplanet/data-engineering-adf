@@ -1,5 +1,6 @@
 {
 	"name": "SupportDatabase",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"description": "Connection between ADF and processing framework metadata SQLDB.",
 		"annotations": [
@@ -7,14 +8,8 @@
 		],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": {
-				"type": "AzureKeyVaultSecret",
-				"store": {
-					"referenceName": "Keys",
-					"type": "LinkedServiceReference"
-				},
-				"secretName": "FrameworkMetadataDev"
-			}
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=fladfmetadata.database.windows.net;initial catalog=metadata;user id=SqlAdmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDM0MjJFNjM2LTVDRDgtNDJDQi05QkVFLTk3Mjk5NDlCRkUyRl82ZDZjOTUyZC1kNzc5LTQ1OWEtYjE4NS01YzNiOGQwZWExYmUiDQp9"
 		}
 	}
 }
