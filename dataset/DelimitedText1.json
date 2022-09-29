@@ -11,8 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "last_time",
-				"folderPath": "API/API_Salesforce",
-				"fileSystem": "raw"
+				"fileSystem": "curated"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
