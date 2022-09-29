@@ -30,6 +30,20 @@
 										"value": "@pipeline().DataFactory",
 										"type": "Expression"
 									}
+								},
+								{
+									"name": "PipelineName",
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									}
+								},
+								{
+									"name": "PipelineGroupId",
+									"value": {
+										"value": "@pipeline().GroupId",
+										"type": "Expression"
+									}
 								}
 							]
 						},
