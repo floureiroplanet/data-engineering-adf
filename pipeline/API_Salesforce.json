@@ -22,7 +22,16 @@
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"metadata": [
+								{
+									"name": "DataFactory",
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									}
+								}
+							]
 						},
 						"formatSettings": {
 							"type": "ParquetWriteSettings"
