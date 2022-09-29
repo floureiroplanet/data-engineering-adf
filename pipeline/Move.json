@@ -35,7 +35,20 @@
 						"type": "BinarySink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "PreserveHierarchy"
+							"copyBehavior": "PreserveHierarchy",
+							"metadata": [
+								{
+									"name": "Last",
+									"value": "$$LASTMODIFIED"
+								},
+								{
+									"name": "Data",
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									}
+								}
+							]
 						}
 					},
 					"enableStaging": false
