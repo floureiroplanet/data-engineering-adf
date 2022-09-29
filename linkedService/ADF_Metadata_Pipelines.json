@@ -1,0 +1,10 @@
+{
+	"name": "ADF_Metadata_Pipelines",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=adfmetadata.database.windows.net;Initial Catalog=\"ADF Metadata Pipelines\""
+		}
+	}
+}
