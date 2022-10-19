@@ -28,6 +28,8 @@
 		},
 		"annotations": [
 			"_ProcFwkWorker"
-		]
-	}
+		],
+		"lastPublishTime": "2022-09-29T21:52:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
